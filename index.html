@@ -10,7 +10,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 html,body{margin:0;padding:0;background:#FFF3E7}
 *{box-sizing:border-box}
@@ -29,7 +29,7 @@ button:focus-visible{outline:2px solid #00656E;outline-offset:3px}
 </style>
 </helmet>
 
-<div style="position:relative;min-height:100vh;width:100%;overflow:hidden;background:#FFF3E7;font-family:Jost,system-ui,sans-serif;color:#00656E;display:flex;align-items:center;justify-content:center;padding:56px 20px">
+<div style="position:relative;min-height:100vh;width:100%;overflow:hidden;background:#FFF3E7;font-family:Oswald,system-ui,sans-serif;color:#00656E;display:flex;align-items:center;justify-content:center;padding:56px 20px">
 
   <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
     <div style="position:absolute;top:-14vh;left:-10vw;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle at 35% 35%,#B8E3EC,rgba(184,227,236,0));filter:blur(6px);animation:drift1 22s ease-in-out infinite"></div>
@@ -48,7 +48,7 @@ button:focus-visible{outline:2px solid #00656E;outline-offset:3px}
   <div style="position:relative;width:100%;max-width:560px;animation:riseIn .7s cubic-bezier(.2,.7,.3,1) both">
 
     <div style="display:flex;justify-content:center;margin-bottom:34px">
-      <img src="logo.png" alt="EASY TOUR" style="width:190px;height:auto;display:block">
+      <img src="uploads/logo.png" alt="EASY TOUR" style="width:190px;height:auto;display:block">
     </div>
 
     <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
@@ -63,30 +63,30 @@ button:focus-visible{outline:2px solid #00656E;outline-offset:3px}
       <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:16px">
         <label style="display:flex;flex-direction:column;gap:7px">
           <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Имя</span>
-          <input name="name" required="true" placeholder="Как к тебе обращаться" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+          <input name="name" required="true" placeholder="Как к тебе обращаться" style="font-family:Oswald,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
         </label>
         <label style="display:flex;flex-direction:column;gap:7px">
           <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Электронная почта</span>
-          <input name="email" type="email" required="true" placeholder="you@mail.ru" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+          <input name="email" type="email" required="true" placeholder="you@mail.ru" style="font-family:Oswald,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
         </label>
         <label style="display:flex;flex-direction:column;gap:7px">
           <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Телефон</span>
-          <input name="phone" type="tel" required="true" placeholder="+7 900 000-00-00" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+          <input name="phone" type="tel" required="true" placeholder="+7 900 000-00-00" style="font-family:Oswald,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
         </label>
         <label style="display:flex;flex-direction:column;gap:7px">
           <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Ник в Telegram</span>
-          <input name="tg" required="true" value="{{ tg }}" onChange="{{ onTg }}" placeholder="@nickname" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+          <input name="tg" required="true" value="{{ tg }}" onChange="{{ onTg }}" placeholder="@nickname" style="font-family:Oswald,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
         </label>
 
         <label style="display:flex;gap:11px;align-items:flex-start;margin-top:6px;cursor:pointer">
           <input type="checkbox" checked="{{ promo }}" onChange="{{ onPromo }}" style="position:absolute;opacity:0;width:0;height:0">
           <span style="{{ boxStyle }}">{{ checkMark }}</span>
-          <span style="font-size:13.5px;line-height:1.5;font-weight:300;color:rgba(0,101,110,.85)">Настоящим даю <a href="#" target="_blank">согласие</a> на получение мною сообщений рекламного характера</span>
+          <span style="font-size:13.5px;line-height:1.5;font-weight:300;color:rgba(0,101,110,.85)">Настоящим даю <a href="soglasie-pd.html" target="_blank">согласие</a> на получение мною сообщений рекламного характера</span>
         </label>
 
-        <button type="submit" style="margin-top:10px;font-family:Jost,system-ui,sans-serif;font-size:16.5px;font-weight:500;letter-spacing:.02em;color:#fff;background:#16BECF;border:none;border-radius:12px;padding:17px 20px;cursor:pointer;box-shadow:0 14px 30px -14px rgba(22,190,207,.9);transition:background .2s,transform .15s,box-shadow .2s" style-hover="background:#00656E;transform:translateY(-1px);box-shadow:0 18px 34px -14px rgba(0,101,110,.7)" style-active="transform:translateY(0);box-shadow:0 8px 18px -12px rgba(0,101,110,.8)">Зарегистрироваться</button>
+        <button type="submit" style="margin-top:10px;font-family:Oswald,system-ui,sans-serif;font-size:16.5px;font-weight:500;letter-spacing:.02em;color:#fff;background:#16BECF;border:none;border-radius:12px;padding:17px 20px;cursor:pointer;box-shadow:0 14px 30px -14px rgba(22,190,207,.9);transition:background .2s,transform .15s,box-shadow .2s" style-hover="background:#00656E;transform:translateY(-1px);box-shadow:0 18px 34px -14px rgba(0,101,110,.7)" style-active="transform:translateY(0);box-shadow:0 8px 18px -12px rgba(0,101,110,.8)">Зарегистрироваться</button>
 
-        <p style="margin:12px 0 0;font-size:12.5px;line-height:1.55;font-weight:300;color:rgba(0,101,110,.65);text-wrap:pretty">Нажимая на кнопку «Зарегистрироваться», вы даете <a href="#" target="_blank">Согласие</a> на обработку персональных данных в соответствии с <a href="#" target="_blank">Политикой обработки персональных данных</a>.</p>
+        <p style="margin:12px 0 0;font-size:12.5px;line-height:1.55;font-weight:300;color:rgba(0,101,110,.65);text-wrap:pretty">Нажимая на кнопку «Зарегистрироваться», вы даете <a href="soglasie-pd.html" target="_blank">Согласие</a> на обработку персональных данных в соответствии с <a href="polzovatelskoe-soglashenie.html" target="_blank">Политикой обработки персональных данных</a>.</p>
       </form>
     </div>
     </sc-if>
