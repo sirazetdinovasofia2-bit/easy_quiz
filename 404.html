@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Маршрут не найден — Easy Tour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FFF3E7}
+*{box-sizing:border-box}
+a{color:#00656E;text-decoration:none}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-40px) scale(1.12)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-70px,50px) scale(.9)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift3{0%{transform:translate(0,0)}50%{transform:translate(40px,60px)}100%{transform:translate(0,0)}}
+@keyframes ringpulse{0%{transform:scale(.85);opacity:.5}100%{transform:scale(1.5);opacity:0}}
+@keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes dashFlow{to{stroke-dashoffset:-260}}
+@keyframes planeFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-7px) rotate(-4deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+.btn{margin-top:30px;display:inline-block;font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:.02em;color:#fff;background:#16BECF;border-radius:12px;padding:15px 30px;box-shadow:0 14px 30px -14px rgba(22,190,207,.9);transition:background .2s,transform .15s,box-shadow .2s}
+.btn:hover{background:#00656E;transform:translateY(-1px);box-shadow:0 18px 34px -14px rgba(0,101,110,.7)}
+.btn:active{transform:translateY(0);box-shadow:0 8px 18px -12px rgba(0,101,110,.8)}
+.btn:focus-visible{outline:2px solid #00656E;outline-offset:3px}
+</style>
+</head>
+<body>
+<div style="position:relative;min-height:100vh;width:100%;overflow:hidden;background:#FFF3E7;font-family:Jost,system-ui,sans-serif;color:#00656E;display:flex;align-items:center;justify-content:center;padding:56px 20px">
+
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <div style="position:absolute;top:-14vh;left:-10vw;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle at 35% 35%,#B8E3EC,rgba(184,227,236,0));filter:blur(6px);animation:drift1 22s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-18vh;right:-12vw;width:52vw;height:52vw;border-radius:50%;background:radial-gradient(circle at 60% 40%,#97D5C9,rgba(151,213,201,0));opacity:.85;filter:blur(8px);animation:drift2 28s ease-in-out infinite"></div>
+    <div style="position:absolute;top:38%;right:14%;width:22vw;height:22vw;border-radius:50%;background:radial-gradient(circle,rgba(22,190,207,.28),rgba(22,190,207,0));filter:blur(4px);animation:drift3 19s ease-in-out infinite"></div>
+    <div style="position:absolute;top:22%;left:12%;width:180px;height:180px;border-radius:50%;border:1px solid rgba(22,190,207,.35);animation:ringpulse 7s ease-out infinite"></div>
+    <div style="position:absolute;bottom:18%;left:30%;width:120px;height:120px;border-radius:50%;border:1px solid rgba(0,101,110,.25);animation:ringpulse 9s ease-out infinite 2s"></div>
+  </div>
+
+  <div style="position:relative;width:100%;max-width:560px;animation:riseIn .7s cubic-bezier(.2,.7,.3,1) both">
+
+    <div style="display:flex;justify-content:center;margin-bottom:34px">
+      <img src="uploads/logo.png" alt="EASY TOUR" style="width:190px;height:auto;display:block">
+    </div>
+
+    <div style="background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(151,213,201,.55);border-radius:22px;box-shadow:0 24px 60px -30px rgba(0,101,110,.45);padding:46px 34px 40px;text-align:center">
+
+      <!-- Signature: сбитый с курса маршрут -->
+      <div style="position:relative;height:118px;margin:0 auto 20px;max-width:360px">
+        <svg viewBox="0 0 360 118" width="100%" height="100%" fill="none" style="overflow:visible">
+          <circle cx="34" cy="90" r="5" fill="#00656E"/>
+          <circle cx="34" cy="90" r="11" fill="none" stroke="rgba(0,101,110,.3)" stroke-width="1.5"/>
+          <path d="M34 90 C 120 90, 150 26, 214 30" stroke="#16BECF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 9" style="animation:dashFlow 6s linear infinite"/>
+          <path d="M214 30 C 262 33, 250 96, 320 62" stroke="rgba(0,101,110,.28)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 9"/>
+          <g style="transform-origin:214px 30px;animation:planeFloat 4.5s ease-in-out infinite">
+            <g transform="translate(214 30) rotate(28)">
+              <path d="M-14 0 L16 0 M9 -7 L18 0 L9 7 M-14 -5 L-14 5" stroke="#00656E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(320 62)">
+            <path d="M0 -9 L0 9 M-6 -4 L6 -4" stroke="rgba(0,101,110,.4)" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+
+      <p style="margin:0 0 12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:#16BECF">Ошибка 404</p>
+
+      <h1 style="margin:0 0 14px;font-size:30px;line-height:1.22;font-weight:500;color:#00656E;text-wrap:pretty">Кажется, этот маршрут не найден</h1>
+
+      <p style="margin:0;font-size:16px;line-height:1.6;font-weight:300;color:rgba(0,101,110,.82);text-wrap:pretty">Страница улетела без нас — бывает даже у лучших турагентов. Вернись на главную и попробуй снова.</p>
+
+      <a class="btn" href="/">Вернуться на главную</a>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

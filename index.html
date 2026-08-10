@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FFF3E7}
+*{box-sizing:border-box}
+a{color:#00656E;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{color:#16BECF}
+input::placeholder{color:#00656E;opacity:.38}
+input:focus{outline:none;border-color:#16BECF !important;box-shadow:0 0 0 4px rgba(22,190,207,.16) !important}
+button:focus-visible{outline:2px solid #00656E;outline-offset:3px}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-40px) scale(1.12)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-70px,50px) scale(.9)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift3{0%{transform:translate(0,0)}50%{transform:translate(40px,60px)}100%{transform:translate(0,0)}}
+@keyframes seed{0%{transform:translate(0,110vh) rotate(0deg);opacity:0}8%{opacity:.75}92%{opacity:.6}100%{transform:translate(80px,-12vh) rotate(320deg);opacity:0}}
+@keyframes ringpulse{0%{transform:scale(.85);opacity:.5}100%{transform:scale(1.5);opacity:0}}
+@keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;width:100%;overflow:hidden;background:#FFF3E7;font-family:Jost,system-ui,sans-serif;color:#00656E;display:flex;align-items:center;justify-content:center;padding:56px 20px">
+
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <div style="position:absolute;top:-14vh;left:-10vw;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle at 35% 35%,#B8E3EC,rgba(184,227,236,0));filter:blur(6px);animation:drift1 22s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-18vh;right:-12vw;width:52vw;height:52vw;border-radius:50%;background:radial-gradient(circle at 60% 40%,#97D5C9,rgba(151,213,201,0));opacity:.85;filter:blur(8px);animation:drift2 28s ease-in-out infinite"></div>
+    <div style="position:absolute;top:38%;right:14%;width:22vw;height:22vw;border-radius:50%;background:radial-gradient(circle,rgba(22,190,207,.28),rgba(22,190,207,0));filter:blur(4px);animation:drift3 19s ease-in-out infinite"></div>
+    <div style="position:absolute;top:22%;left:12%;width:180px;height:180px;border-radius:50%;border:1px solid rgba(22,190,207,.35);animation:ringpulse 7s ease-out infinite"></div>
+    <div style="position:absolute;bottom:18%;left:30%;width:120px;height:120px;border-radius:50%;border:1px solid rgba(0,101,110,.25);animation:ringpulse 9s ease-out infinite 2s"></div>
+
+    <div style="position:absolute;left:8%;bottom:0;animation:seed 17s linear infinite">{{ seedA }}</div>
+    <div style="position:absolute;left:24%;bottom:0;animation:seed 23s linear infinite 3s">{{ seedB }}</div>
+    <div style="position:absolute;left:47%;bottom:0;animation:seed 20s linear infinite 8s">{{ seedC }}</div>
+    <div style="position:absolute;left:68%;bottom:0;animation:seed 26s linear infinite 5s">{{ seedD }}</div>
+    <div style="position:absolute;left:86%;bottom:0;animation:seed 21s linear infinite 12s">{{ seedE }}</div>
+  </div>
+
+  <div style="position:relative;width:100%;max-width:560px;animation:riseIn .7s cubic-bezier(.2,.7,.3,1) both">
+
+    <div style="display:flex;justify-content:center;margin-bottom:34px">
+      <img src="uploads/logo.png" alt="EASY TOUR" style="width:190px;height:auto;display:block">
+    </div>
+
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+    <div style="background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(151,213,201,.55);border-radius:22px;box-shadow:0 24px 60px -30px rgba(0,101,110,.45);padding:38px 34px 32px">
+
+      <p style="margin:0 0 10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:#16BECF">Профессия турагента</p>
+
+      <h1 style="margin:0 0 14px;font-size:30px;line-height:1.22;font-weight:500;color:#00656E;text-wrap:pretty">Заполни поля и узнай, подходит ли тебе профессия турагента</h1>
+
+      <p style="margin:0 0 30px;font-size:16px;line-height:1.55;font-weight:300;color:rgba(0,101,110,.8);text-wrap:pretty">а также получи подробное видео «Как попасть в профессию турагента в 2026» с пошаговым планом действий.</p>
+
+      <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:16px">
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Имя</span>
+          <input name="name" required="true" placeholder="Как к тебе обращаться" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Электронная почта</span>
+          <input name="email" type="email" required="true" placeholder="you@mail.ru" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Телефон</span>
+          <input name="phone" type="tel" required="true" placeholder="+7 900 000-00-00" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:13px;font-weight:500;letter-spacing:.02em;color:#00656E">Ник в Telegram</span>
+          <input name="tg" required="true" value="{{ tg }}" onChange="{{ onTg }}" placeholder="@nickname" style="font-family:Jost,system-ui,sans-serif;font-size:16px;font-weight:400;color:#00656E;background:#fff;border:1px solid rgba(0,101,110,.18);border-radius:12px;padding:13px 15px;transition:border-color .2s,box-shadow .2s">
+        </label>
+
+        <label style="display:flex;gap:11px;align-items:flex-start;margin-top:6px;cursor:pointer">
+          <input type="checkbox" checked="{{ promo }}" onChange="{{ onPromo }}" style="position:absolute;opacity:0;width:0;height:0">
+          <span style="{{ boxStyle }}">{{ checkMark }}</span>
+          <span style="font-size:13.5px;line-height:1.5;font-weight:300;color:rgba(0,101,110,.85)">Настоящим даю <a href="#" target="_blank">согласие</a> на получение мною сообщений рекламного характера</span>
+        </label>
+
+        <button type="submit" style="margin-top:10px;font-family:Jost,system-ui,sans-serif;font-size:16.5px;font-weight:500;letter-spacing:.02em;color:#fff;background:#16BECF;border:none;border-radius:12px;padding:17px 20px;cursor:pointer;box-shadow:0 14px 30px -14px rgba(22,190,207,.9);transition:background .2s,transform .15s,box-shadow .2s" style-hover="background:#00656E;transform:translateY(-1px);box-shadow:0 18px 34px -14px rgba(0,101,110,.7)" style-active="transform:translateY(0);box-shadow:0 8px 18px -12px rgba(0,101,110,.8)">Зарегистрироваться</button>
+
+        <p style="margin:12px 0 0;font-size:12.5px;line-height:1.55;font-weight:300;color:rgba(0,101,110,.65);text-wrap:pretty">Нажимая на кнопку «Зарегистрироваться», вы даете <a href="#" target="_blank">Согласие</a> на обработку персональных данных в соответствии с <a href="#" target="_blank">Политикой обработки персональных данных</a>.</p>
+      </form>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+    <div style="background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(151,213,201,.55);border-radius:22px;box-shadow:0 24px 60px -30px rgba(0,101,110,.45);padding:52px 34px;text-align:center;animation:riseIn .5s cubic-bezier(.2,.7,.3,1) both">
+      <div style="width:64px;height:64px;margin:0 auto 22px;border-radius:50%;background:#B8E3EC;display:flex;align-items:center;justify-content:center;font-size:30px;color:#00656E">✓</div>
+      <h2 style="margin:0 0 12px;font-size:26px;font-weight:500;color:#00656E">Готово, {{ name }}!</h2>
+      <p style="margin:0;font-size:16px;line-height:1.6;font-weight:300;color:rgba(0,101,110,.8)">Видео «Как попасть в профессию турагента в 2026» отправим на указанную почту и продублируем в Telegram.</p>
+    </div>
+    </sc-if>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const SEED = (o) => React.createElement('svg', {width:34, height:34, viewBox:'0 0 34 34', fill:'none', style:{opacity:o}},
+  React.createElement('circle', {cx:17, cy:17, r:2, fill:'#16BECF'}),
+  ...Array.from({length:9}, (_, i) => {
+    const a = (i / 9) * Math.PI * 2;
+    return React.createElement('line', {key:i, x1:17, y1:17, x2:17 + Math.cos(a)*13, y2:17 + Math.sin(a)*13, stroke:'#16BECF', strokeWidth:1, strokeLinecap:'round'});
+  })
+);
+
+class Component extends DCLogic {
+  state = { sent: false, name: '', tg: '', promo: true };
+
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      name: this.state.name,
+      tg: this.state.tg,
+      promo: this.state.promo,
+      boxStyle: 'flex:none;display:flex;align-items:center;justify-content:center;width:20px;height:20px;margin-top:2px;border-radius:6px;transition:background .18s,border-color .18s;border:1.5px solid ' + (this.state.promo ? '#16BECF' : 'rgba(0,101,110,.35)') + ';background:' + (this.state.promo ? '#16BECF' : '#fff'),
+      checkMark: this.state.promo ? React.createElement('svg', {width:13, height:13, viewBox:'0 0 20 20', fill:'none', stroke:'#fff', strokeWidth:2.6, strokeLinecap:'round', strokeLinejoin:'round'}, React.createElement('path', {d:'M4 10.5l3.6 3.6L16 6'})) : null,
+      onPromo: (e) => this.setState({ promo: e.target.checked }),
+      onTg: (e) => {
+        let v = e.target.value.replace(/\s+/g, '');
+        if (v && v[0] !== '@') v = '@' + v.replace(/^@+/, '');
+        this.setState({ tg: v });
+      },
+      submit: (e) => {
+        e.preventDefault();
+        const f = new FormData(e.target);
+        const name = (f.get('name') || '').trim();
+
+        const WEBHOOK = 'https://s8.apix-drive.com/web-hooks/9936/ar6hhc2i';
+
+        const data = new URLSearchParams();
+        data.append('name',   name);
+        data.append('email',  (f.get('email') || '').trim());
+        data.append('phone',  (f.get('phone') || '').trim());
+        data.append('tg',     (f.get('tg') || this.state.tg || '').trim());
+        data.append('promo',  this.state.promo ? 'да' : 'нет');
+        data.append('source', 'Лендинг турагенты');
+        data.append('date',   new Date().toLocaleString('ru-RU'));
+
+        fetch(WEBHOOK, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data.toString()
+        }).catch(function(){});
+
+        this.setState({ sent: true, name: name });
+      },
+      seedA: SEED(0.8), seedB: SEED(0.55), seedC: SEED(0.7), seedD: SEED(0.45), seedE: SEED(0.65)
+    };
+  }
+}
+
+</script>
+</body>
+</html>
