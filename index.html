@@ -149,11 +149,12 @@ class Component extends DCLogic {
         fetch(WEBHOOK, {
           method: 'POST',
           mode: 'no-cors',
+          keepalive: true,
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: data.toString()
         }).catch(function(){});
 
-        this.setState({ sent: true, name: name });
+        window.location.href = 'thanks.html';
       },
       seedA: SEED(0.8), seedB: SEED(0.55), seedC: SEED(0.7), seedD: SEED(0.45), seedE: SEED(0.65)
     };
